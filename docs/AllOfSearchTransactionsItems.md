@@ -1,0 +1,38 @@
+# RebillySdk::AllOfSearchTransactionsItems
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**gateway_account_id** | [****](.md) | The transaction&#x27;s Gateway Account ID. | [optional] 
+**gateway_transaction_id** | [****](.md) | The gateway&#x27;s transaction ID. | [optional] 
+**gateway** | [**TransactionGateway**](TransactionGateway.md) |  | [optional] 
+**acquirer_name** | [****](.md) | Acquirer name, available only when transaction use gateway, else null. | [optional] 
+**method** | [****](.md) | Payment Method. Use &#x60;paymentInstrument.method&#x60; instead. | [optional] 
+**velocity** | **Integer** | The number of transactions by the same customer in the past 24 hours. | [optional] 
+**revision** | **Integer** | The number of times the transaction data has been modified. The revision is useful when analyzing webhook data to determine if the change takes precedence over the current representation.  | [optional] 
+**reference_data** | **Hash&lt;String, String&gt;** | Transaction reference data. | [optional] 
+**bin** | **String** | Payment Card BIN. | [optional] 
+**payment_instrument** | [**PaymentInstrument**](PaymentInstrument.md) |  | [optional] 
+**has_dcc** | **BOOLEAN** | True if transaction has Dynamic Currency Conversion applied. | [optional] 
+**dcc** | [**TransactionDcc**](TransactionDcc.md) |  | [optional] 
+**has_bump_offer** | **BOOLEAN** | True if transaction has a Bump offer. | [optional] 
+**bump_offer** | [**TransactionBumpOffer**](TransactionBumpOffer.md) |  | [optional] 
+**risk_score** | **Integer** | The transaction&#x27;s risk score. | [optional] 
+**risk_metadata** | [****](.md) | Risk metadata. | [optional] 
+**notification_url** | [**TransactionNotificationUrl**](TransactionNotificationUrl.md) |  | [optional] 
+**is_disputed** | **BOOLEAN** | True if transaction is disputed. | [optional] 
+**dispute_time** | **DateTime** | Time the dispute was created, else null. | [optional] 
+**dispute_status** | **String** | The dispute&#x27;s status, else null. | [optional] 
+**is_reconciled** | **BOOLEAN** | True if the transaction has been verified with gateway batch data. | [optional] 
+**is_processed_outside** | **BOOLEAN** | True if the transaction was processed outside of Rebilly. | [optional] 
+**is_merchant_initiated** | **BOOLEAN** | True if the transaction was initiated by the merchant. | [optional] 
+**had_discrepancy** | **BOOLEAN** | True if the transaction has been updated due to a discrepancy with its. source of truth. | [optional] 
+**order_id** | **String** | The transaction&#x27;s order ID.  This ID must be unique within a 24 hour period. This field was renamed to the &#x60;requestId&#x60;. | [optional] 
+**arn** | **String** | The acquirer reference number. | [optional] 
+**report_amount** | **Float** | Transaction amount converted to organization selected report currency. | [optional] 
+**report_currency** | [****](.md) |  | [optional] 
+**settlement_time** | **DateTime** | The time that the transaction was settled by the banking instuition. | [optional] 
+**discrepancy_time** | **DateTime** | The time of the most recent discrepancy on the transaction. | [optional] 
+**_links** | [**Array&lt;null&gt;**](.md) | The links related to resource. | [optional] 
+**_embedded** | [**Array&lt;null&gt;**](.md) | Any embedded objects available that are requested by the &#x60;expand&#x60; querystring parameter. | [optional] 
+

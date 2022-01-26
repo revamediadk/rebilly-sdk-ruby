@@ -1,0 +1,38 @@
+# RebillySdk::RiskMetadata
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ip_address** | **String** | The customer&#x27;s IP. | [optional] 
+**fingerprint** | **String** | The fingerprint. | [optional] 
+**http_headers** | [**HttpHeaders**](HttpHeaders.md) |  | [optional] 
+**browser_data** | [**BrowserData**](BrowserData.md) |  | [optional] 
+**extra_data** | [**ExtraData**](ExtraData.md) |  | [optional] 
+**is_proxy** | **BOOLEAN** | True if customer&#x27;s ip address is related to proxy. | [optional] 
+**is_vpn** | **BOOLEAN** | True if customer&#x27;s ip address is related to VPN. | [optional] 
+**is_tor** | **BOOLEAN** | True if customer&#x27;s ip address is related to TOR. | [optional] 
+**is_hosting** | **BOOLEAN** | True if customer&#x27;s ip address is related to hosting. | [optional] 
+**vpn_service_name** | **String** | VPN service name, if available. | [optional] 
+**isp** | **String** | Internet Service Provider name, if available. | [optional] 
+**country** | **String** | Country ISO Alpha-2 code for specified ipAddress. | [optional] 
+**region** | **String** | Region for specified ipAddress. | [optional] 
+**city** | **String** | City for specified ipAddress. | [optional] 
+**latitude** | **Float** | Latitude for specified ipAddress. | [optional] 
+**longitude** | **Float** | Longitude for specified ipAddress. | [optional] 
+**postal_code** | **String** | Postal code for specified ipAddress. | [optional] 
+**time_zone** | **String** | Time zone for specified ipAddress. | [optional] 
+**accuracy_radius** | **Integer** | Accuracy radius for specified ipAddress (kilometers). | [optional] 
+**distance** | **Integer** | Distance between IP Address and Billing Address geolocation (kilometers). | [optional] 
+**has_mismatched_billing_address_country** | **BOOLEAN** | True if the billing address country and geo-IP address are not the same. | [optional] 
+**has_mismatched_bank_country** | **BOOLEAN** | True if the bank country and geo-IP address are not the same. | [optional] 
+**has_mismatched_time_zone** | **BOOLEAN** | True if the browser time zone and IP address associated time zone are not the same. | [optional] 
+**has_mismatched_holder_name** | **BOOLEAN** | True if the customer&#x27;s name from billing address and from customer&#x27;s primary address are not the same. | [optional] 
+**has_fake_name** | **BOOLEAN** | True if the holder name seems fake. | [optional] 
+**is_high_risk_country** | **BOOLEAN** | True if geo-IP country or the customer&#x27;s billing country is considered a high risk country. | [optional] 
+**payment_instrument_velocity** | **Integer** | Number of transactions for this payment instrument (based on fingerprint) in the last 24 hours. | [optional] 
+**device_velocity** | **Integer** | Number of transactions for this device (based on fingerprint) in the last 24 hours. | [optional] 
+**ip_velocity** | **Integer** | Number of transactions for this ip address in the last 24 hours. | [optional] 
+**email_velocity** | **Integer** | Number of transactions for this email address in the last 24 hours. | [optional] 
+**billing_address_velocity** | **Integer** | Number of transactions for this billing address in the last 24 hours. | [optional] 
+**score** | **Integer** | Risk score computed per all the factors. | [optional] 
+
