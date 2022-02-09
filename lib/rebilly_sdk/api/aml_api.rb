@@ -25,8 +25,9 @@ module RebillySdk
     # @option opts [] : Date of birth in format YYYY-MM-DD.
     # @option opts [] : Country of individual as an ISO Alpha-2 code.
     # @return [Array<AML>]
-    def get_aml_entry(, , opts = {})
-      data, _status_code, _headers = get_aml_entry_with_http_info(, , opts)
+    # def get_aml_entry(, , opts = {})
+    def get_aml_entry(arg1, arg2, opts = {})
+      data, _status_code, _headers = get_aml_entry_with_http_info(arg1, arg2, opts)
       data
     end
 
@@ -39,16 +40,17 @@ module RebillySdk
     # @option opts [] : Date of birth in format YYYY-MM-DD.
     # @option opts [] : Country of individual as an ISO Alpha-2 code.
     # @return [Array<(Array<AML>, Integer, Hash)>] Array<AML> data, response status code and response headers
-    def get_aml_entry_with_http_info(, , opts = {})
+    # def get_aml_entry_with_http_info(, , opts = {})
+    def get_aml_entry_with_http_info(arg1, arg2, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMLApi.get_aml_entry ...'
       end
       # verify the required parameter '' is set
-      if @api_client.config.client_side_validation && .nil?
+      if @api_client.config.client_side_validation # && .nil?
         fail ArgumentError, "Missing the required parameter '' when calling AMLApi.get_aml_entry"
       end
       # verify the required parameter '' is set
-      if @api_client.config.client_side_validation && .nil?
+      if @api_client.config.client_side_validation # && .nil?
         fail ArgumentError, "Missing the required parameter '' when calling AMLApi.get_aml_entry"
       end
       # resource path
