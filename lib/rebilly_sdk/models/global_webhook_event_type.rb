@@ -81,8 +81,8 @@ module RebillySdk
     TRANSACTION_RECONCILED = 'transaction-reconciled'.freeze
     TRANSACTION_TIMEOUT_RESOLVED = 'transaction-timeout-resolved'.freeze
     WAITING_GATEWAY_TRANSACTION_COMPLETED = 'waiting-gateway-transaction-completed'.freeze
-    APPLICATION_INSTANCE_ENABLED = 'application-instance-enabled'.freeze
-    APPLICATION_INSTANCE_DISABLED = 'application-instance-disabled'.freeze
+    #APPLICATION_INSTANCE_ENABLED = 'application-instance-enabled'.freeze
+    #APPLICATION_INSTANCE_DISABLED = 'application-instance-disabled'.freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
