@@ -155,35 +155,35 @@ module RebillySdk
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'',
-        :'order_type' => :'',
-        :'billing_status' => :'',
-        :'website_id' => :'',
-        :'currency' => :'',
-        :'initial_invoice_id' => :'',
-        :'recent_invoice_id' => :'',
-        :'items' => :'',
-        :'delivery_address' => :'',
-        :'billing_address' => :'',
-        :'activation_time' => :'',
-        :'void_time' => :'',
-        :'coupon_ids' => :'',
-        :'po_number' => :'',
-        :'shipping' => :'',
-        :'notes' => :'',
-        :'status' => :'',
-        :'in_trial' => :'',
-        :'trial' => :'',
-        :'is_trial_only' => :'',
-        :'invoice_time_shift' => :'',
-        :'recurring_interval' => :'',
-        :'autopay' => :'',
-        :'start_time' => :'',
-        :'end_time' => :'',
-        :'renewal_time' => :'',
-        :'rebill_number' => :'',
-        :'line_items' => :'',
-        :'line_item_subtotal' => :''
+        :'id' => :'String',
+        :'order_type' => :'String',
+        :'billing_status' => :'String',
+        :'website_id' => :'String',
+        :'currency' => :'String',
+        :'initial_invoice_id' => :'String',
+        :'recent_invoice_id' => :'String',
+        :'items' => :'Object',
+        :'delivery_address' => :'String',
+        :'billing_address' => :'String',
+        :'activation_time' => :'String',
+        :'void_time' => :'String',
+        :'coupon_ids' => :'String',
+        :'po_number' => :'String',
+        :'shipping' => :'String',
+        :'notes' => :'String',
+        :'status' => :'String',
+        :'in_trial' => :'String',
+        :'trial' => :'String',
+        :'is_trial_only' => :'String',
+        :'invoice_time_shift' => :'String',
+        :'recurring_interval' => :'String',
+        :'autopay' => :'String',
+        :'start_time' => :'String',
+        :'end_time' => :'String',
+        :'renewal_time' => :'String',
+        :'rebill_number' => :'String',
+        :'line_items' => :'String',
+        :'line_item_subtotal' => :'String'
       }
     end
 
@@ -215,7 +215,7 @@ module RebillySdk
       }
 
       # call parent's initialize
-      super(attributes)
+      # super(attributes)
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -453,7 +453,7 @@ module RebillySdk
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
-      super(attributes)
+      # super(attributes)
       self.class.openapi_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
