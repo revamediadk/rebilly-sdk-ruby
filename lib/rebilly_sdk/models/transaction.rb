@@ -359,7 +359,7 @@ module RebillySdk
         :'report_currency' => :'String',
         :'settlement_time' => :'String',
         :'discrepancy_time' => :'String',
-        :'_links' => :'String',
+        :'_links' => :'Object',
         :'_embedded' => :'String'
       }
     end
