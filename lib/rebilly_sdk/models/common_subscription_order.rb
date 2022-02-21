@@ -173,7 +173,7 @@ module RebillySdk
         :'notes' => :'String',
         :'status' => :'String',
         :'in_trial' => :'String',
-        :'trial' => :'String',
+        :'trial' => :'Object',
         :'is_trial_only' => :'String',
         :'invoice_time_shift' => :'String',
         :'recurring_interval' => :'String',
