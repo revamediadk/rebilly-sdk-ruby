@@ -314,7 +314,7 @@ module RebillySdk
         :'plan_ids' => :'String',
         :'is_rebill' => :'String',
         :'rebill_number' => :'String',
-        :'payment_instrument' => :'String',
+        :'payment_instrument' => :'Object',
         :'billing_address' => :'String',
         :'has3ds' => :'String',
         :'_3ds' => :'String',
