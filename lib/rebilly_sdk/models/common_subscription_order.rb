@@ -95,6 +95,17 @@ module RebillySdk
 
     attr_accessor :line_item_subtotal
 
+    # Subscription order canceled time.
+    attr_accessor :canceled_time
+
+    # Canceled by.
+    attr_accessor :canceled_by
+
+    # Cancel category.
+    attr_accessor :cancel_category
+
+    # Cancel reason description in free form.
+    attr_accessor :cancel_description
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -148,7 +159,11 @@ module RebillySdk
         :'renewal_time' => :'renewalTime',
         :'rebill_number' => :'rebillNumber',
         :'line_items' => :'lineItems',
-        :'line_item_subtotal' => :'lineItemSubtotal'
+        :'line_item_subtotal' => :'lineItemSubtotal',
+        :'canceled_time' => :'canceledTime',
+        :'canceled_by' => :'canceledBy',
+        :'cancel_category' => :'cancelCategory',
+        :'cancel_description' => :'cancelDescription',
       }
     end
 
@@ -183,7 +198,11 @@ module RebillySdk
         :'renewal_time' => :'String',
         :'rebill_number' => :'String',
         :'line_items' => :'String',
-        :'line_item_subtotal' => :'String'
+        :'line_item_subtotal' => :'String',
+        :'canceled_time' => :'String',
+        :'canceled_by' => :'String',
+        :'cancel_category' => :'String',
+        :'cancel_description' => :'String',
       }
     end
 
@@ -342,6 +361,22 @@ module RebillySdk
       if attributes.key?(:'line_item_subtotal')
         self.line_item_subtotal = attributes[:'line_item_subtotal']
       end
+
+      if attributes.key?(:'canceled_time')
+        self.canceled_time = attributes[:'canceled_time']
+      end
+
+      if attributes.key?(:'canceled_by')
+        self.canceled_by = attributes[:'canceled_by']
+      end
+
+      if attributes.key?(:'cancel_category')
+        self.cancel_category = attributes[:'cancel_category']
+      end
+
+      if attributes.key?(:'cancel_description')
+        self.cancel_description = attributes[:'cancel_description']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -354,6 +389,10 @@ module RebillySdk
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      canceled_by_validator = EnumAttributeValidator.new('', ['merchant', 'customer', 'rebilly'])
+      return false unless canceled_by_validator.valid?(@canceled_by)
+      cancel_category_validator = EnumAttributeValidator.new('', ['billing-failure', 'did-not-use', 'did-not-want', 'missing-features', 'bugs-or-problems', 'do-not-remember', 'risk-warning', 'contract-expired', 'too-expensive', 'never-started', 'switched-plan', 'other'])
+      return false unless cancel_category_validator.valid?(@cancel_category)
       order_type_validator = EnumAttributeValidator.new('', ['subscription-order', 'one-time-order'])
       return false unless order_type_validator.valid?(@order_type)
       billing_status_validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'past-due', 'abandoned', 'paid', 'voided', 'refunded', 'disputed', 'partially-refunded', 'partially-paid'])
@@ -361,6 +400,26 @@ module RebillySdk
       status_validator = EnumAttributeValidator.new('', ['pending', 'active', 'canceled', 'churned', 'paused', 'voided', 'completed', 'trial-ended'])
       return false unless status_validator.valid?(@status)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] canceled_by Object to be assigned
+    def canceled_by=(canceled_by)
+      validator = EnumAttributeValidator.new('', ['merchant', 'customer', 'rebilly'])
+      unless validator.valid?(canceled_by)
+        fail ArgumentError, "invalid value for \"canceled_by\", must be one of #{validator.allowable_values}."
+      end
+      @canceled_by = canceled_by
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] cancel_category Object to be assigned
+    def cancel_category=(cancel_category)
+      validator = EnumAttributeValidator.new('', ['billing-failure', 'did-not-use', 'did-not-want', 'missing-features', 'bugs-or-problems', 'do-not-remember', 'risk-warning', 'contract-expired', 'too-expensive', 'never-started', 'switched-plan', 'other'])
+      unless validator.valid?(cancel_category)
+        fail ArgumentError, "invalid value for \"cancel_category\", must be one of #{validator.allowable_values}."
+      end
+      @cancel_category = cancel_category
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -426,7 +485,11 @@ module RebillySdk
           renewal_time == o.renewal_time &&
           rebill_number == o.rebill_number &&
           line_items == o.line_items &&
-          line_item_subtotal == o.line_item_subtotal && super(o)
+          line_item_subtotal == o.line_item_subtotal &&
+          canceled_time == o.canceled_time &&
+          canceled_by == o.canceled_by &&
+          cancel_category == o.cancel_category &&
+          cancel_description == o.cancel_description && super(o)
     end
 
     # @see the `==` method
@@ -438,7 +501,7 @@ module RebillySdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, order_type, billing_status, website_id, currency, initial_invoice_id, recent_invoice_id, items, delivery_address, billing_address, activation_time, void_time, coupon_ids, po_number, shipping, notes, status, in_trial, trial, is_trial_only, invoice_time_shift, recurring_interval, autopay, start_time, end_time, renewal_time, rebill_number, line_items, line_item_subtotal].hash
+      [id, order_type, billing_status, website_id, currency, initial_invoice_id, recent_invoice_id, items, delivery_address, billing_address, activation_time, void_time, coupon_ids, po_number, shipping, notes, status, in_trial, trial, is_trial_only, invoice_time_shift, recurring_interval, autopay, start_time, end_time, renewal_time, rebill_number, line_items, line_item_subtotal, canceled_time, canceled_by, cancel_category, cancel_description].hash
     end
 
     # Builds the object from hash
