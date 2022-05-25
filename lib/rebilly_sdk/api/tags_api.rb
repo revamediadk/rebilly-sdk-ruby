@@ -603,7 +603,6 @@ module RebillySdk
     # @return [nil]
     def post_tag_customer(tag, customer_id, opts = {})
       post_tag_customer_with_http_info(tag, customer_id, opts)
-      nil
     end
 
     # Tag a customer
