@@ -316,7 +316,7 @@ module RebillySdk
         :'rebill_number' => :'String',
         :'payment_instrument' => :'Object',
         :'billing_address' => :'String',
-        :'has3ds' => :'Boolean',
+        :'has3ds' => :'String',
         :'_3ds' => :'Object',
         :'redirect_url' => :'String',
         :'retry_number' => :'String',
