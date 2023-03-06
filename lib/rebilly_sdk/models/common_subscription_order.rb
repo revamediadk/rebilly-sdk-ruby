@@ -445,7 +445,7 @@ module RebillySdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('', ['pending', 'active', 'canceled', 'churned', 'paused', 'voided', 'completed', 'trial-ended'])
+      validator = EnumAttributeValidator.new('', ['pending', 'abandoned', 'active', 'canceled', 'churned', 'paused', 'voided', 'completed', 'trial-ended'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
