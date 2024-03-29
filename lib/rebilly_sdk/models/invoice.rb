@@ -457,7 +457,7 @@ module RebillySdk
     def valid?
       return false if @website_id.nil?
       return false if @currency.nil?
-      status_validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed'])
+      status_validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed', 'churned', 'upcoming'])
       return false unless status_validator.valid?(@status)
       return false if @customer_id.nil?
       type_validator = EnumAttributeValidator.new('', ['initial', 'renewal', 'interim', 'cancellation', 'one-time', 'refund', 'charge', 'one-time-sale'])
@@ -468,7 +468,7 @@ module RebillySdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed'])
+      validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed', 'churned', 'upcoming'])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
