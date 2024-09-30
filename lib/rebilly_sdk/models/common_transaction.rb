@@ -197,7 +197,7 @@ module RebillySdk
         :'rebill_number' => :'Object',
         :'payment_instrument' => :'Object',
         :'billing_address' => :'Object',
-        :'has3ds' => :'Object',
+        :'has3ds' => :'String',
         :'_3ds' => :'Object',
         :'redirect_url' => :'Object',
         :'retry_number' => :'Object',

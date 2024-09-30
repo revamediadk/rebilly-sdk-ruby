@@ -192,20 +192,6 @@ module RebillySdk
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'ApplicationJWT' =>
-          {
-            type: 'bearer',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token}"
-          },
-        'JWT' =>
-          {
-            type: 'bearer',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token}"
-          },
         'PublishableApiKey' =>
           {
             type: 'api_key',

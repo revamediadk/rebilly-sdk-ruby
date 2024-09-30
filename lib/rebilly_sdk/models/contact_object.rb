@@ -203,7 +203,8 @@ module RebillySdk
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, organization, address, address2, city, region, country, postal_code, phone_numbers, emails, hash].hash
+      # [first_name, last_name, organization, address, address2, city, region, country, postal_code, phone_numbers, emails, hash].hash
+      [first_name, last_name, organization, address, address2, city, region, country, postal_code, phone_numbers, emails].hash
     end
 
     # Builds the object from hash

@@ -196,45 +196,45 @@ module RebillySdk
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'',
-        :'website_id' => :'',
-        :'invoice_number' => :'',
-        :'subscription_id' => :'',
-        :'currency' => :'',
-        :'amount' => :'',
-        :'amount_due' => :'',
-        :'subtotal_amount' => :'',
-        :'discount_amount' => :'',
-        :'shipping' => :'',
-        :'tax' => :'',
-        :'billing_address' => :'',
-        :'delivery_address' => :'',
-        :'po_number' => :'',
-        :'notes' => :'',
-        :'items' => :'',
-        :'discounts' => :'',
-        :'autopay_scheduled_time' => :'',
-        :'autopay_retry_number' => :'',
-        :'status' => :'',
-        :'delinquent_collection_period' => :'',
-        :'collection_period' => :'',
-        :'abandoned_time' => :'',
-        :'voided_time' => :'',
-        :'paid_time' => :'',
-        :'due_time' => :'',
-        :'issued_time' => :'',
-        :'created_time' => :'',
-        :'updated_time' => :'',
-        :'payment_form_url' => :'',
-        :'customer_id' => :'',
-        :'transactions' => :'',
-        :'retry_instruction' => :'',
-        :'revision' => :'',
-        :'type' => :'',
-        :'due_reminder_time' => :'',
-        :'due_reminder_number' => :'',
-        :'_links' => :'',
-        :'_embedded' => :''
+        :'id' => :'String',
+        :'website_id' => :'String',
+        :'invoice_number' => :'String',
+        :'subscription_id' => :'String',
+        :'currency' => :'String',
+        :'amount' => :'String',
+        :'amount_due' => :'String',
+        :'subtotal_amount' => :'String',
+        :'discount_amount' => :'String',
+        :'shipping' => :'String',
+        :'tax' => :'String',
+        :'billing_address' => :'String',
+        :'delivery_address' => :'String',
+        :'po_number' => :'String',
+        :'notes' => :'Object',
+        :'items' => :'Object',
+        :'discounts' => :'Object',
+        :'autopay_scheduled_time' => :'String',
+        :'autopay_retry_number' => :'String',
+        :'status' => :'String',
+        :'delinquent_collection_period' => :'String',
+        :'collection_period' => :'String',
+        :'abandoned_time' => :'String',
+        :'voided_time' => :'String',
+        :'paid_time' => :'String',
+        :'due_time' => :'String',
+        :'issued_time' => :'String',
+        :'created_time' => :'String',
+        :'updated_time' => :'String',
+        :'payment_form_url' => :'String',
+        :'customer_id' => :'String',
+        :'transactions' => :'Object',
+        :'retry_instruction' => :'String',
+        :'revision' => :'String',
+        :'type' => :'String',
+        :'due_reminder_time' => :'String',
+        :'due_reminder_number' => :'String',
+        :'_links' => :'Object',
+        :'_embedded' => :'Object'
       }
     end
 
@@ -262,7 +262,7 @@ module RebillySdk
       }
 
       # call parent's initialize
-      super(attributes)
+      # super(attributes)
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -457,7 +457,7 @@ module RebillySdk
     def valid?
       return false if @website_id.nil?
       return false if @currency.nil?
-      status_validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed'])
+      status_validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed', 'churned', 'upcoming', 'quotation', 'partially-paid'])
       return false unless status_validator.valid?(@status)
       return false if @customer_id.nil?
       type_validator = EnumAttributeValidator.new('', ['initial', 'renewal', 'interim', 'cancellation', 'one-time', 'refund', 'charge', 'one-time-sale'])
@@ -468,9 +468,9 @@ module RebillySdk
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed'])
+      validator = EnumAttributeValidator.new('', ['draft', 'unpaid', 'paid', 'past-due', 'delinquent', 'abandoned', 'voided', 'partially-refunded', 'refunded', 'disputed', 'churned', 'upcoming', 'quotation', 'partially-paid'])
       unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
+        fail ArgumentError, "invalid value for \"status\" (#{status}), must be one of #{validator.allowable_values}."
       end
       @status = status
     end
@@ -555,7 +555,8 @@ module RebillySdk
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
-      super(attributes)
+
+      # super(attributes)
       self.class.openapi_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute

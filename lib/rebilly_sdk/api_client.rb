@@ -118,7 +118,11 @@ module RebillySdk
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
         if @config.debugging
-          @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
+          @config.logger.debug "HTTP request header ~BEGIN~\n#{header_params}\n~END~\n"
+          @config.logger.debug "HTTP request form param ~BEGIN~\n#{form_params}\n~END~\n"
+          @config.logger.debug "HTTP request body param ~BEGIN~\n#{opts}\n~END~\n"
+          @config.logger.debug "HTTP request url ~BEGIN~\n#{url}\n~END~\n"
+          @config.logger.debug "HTTP request opts ~BEGIN~\n#{req_opts}\n~END~\n"
         end
       end
 
